@@ -1,0 +1,21 @@
+#from telegram.ext import Updater, InlineQueryHandler, CommandHandler
+#from CasoIATienda.Conexion import Conexion
+
+#conexion base de datos MySql
+conn = mysql.connector.connect(
+host="localhost",
+user="root",
+password="",
+database="tienda"
+)
+
+#select 
+stmt = conn.cursor()
+
+stmt.execute("SELECT id,NombreProducto,Cantidad,Precio FROM productos")
+
+myresult = stmt.fetchall()
+
+
+
+resultadoj = json.dumps(myresult , indent = 4)
